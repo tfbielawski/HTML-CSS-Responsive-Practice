@@ -26,7 +26,6 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
@@ -35,9 +34,6 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
-}
-body {
-	line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -55,57 +51,273 @@ table {
 	border-spacing: 0;
 }
 
-/* */
+/** **/
 
-* 
+*
 {
-    box-sizing: border-box;     /* CSS respects width of box using padding given */   
-    max-width: 100%;            /* Prevents elements from getting bigger than their parent */
-    padding: 0;
-    margin: 0;
-    border: 1px solid gray;
+    box-sizing: border-box; /*respect the width of the box, apply padding or border within the width it's been given not in addition to it*/
+    max-width:100%; /*Makes it so that elements can never be bigger than their parents, stops the horizontal scroll bar*/
+    padding:0;
+    margin:0;
+    border: 1px solid grey;
 }
 
-/* General styles */
-
+/*General Styles*/
 html
 {
-    font-size: 62.5%;
+    font-size:62.5%; /*default browser font-size is 16px, this makes it so that 1rem === 10px (easier math) it also gives the user control over bumping up or down the font size because % is a scalable unit of measurement*/
 }
 
 body
 {
-    font-size: 1.6rem; /* Sets font size back to 16px */
-    line-height: 1.5;  /* Space between lines. takes font size and * by this number */
-    color: #4F4F4F;  /* Use as default font color */
-    background-color: #FBFFFB;
+    font-size:1.8rem; /*setting the font size back to 18px*/
+    line-height:1.5; /*no unit of measurement, it take the font size and multiplies it by this number to add space between lines*/
+    color:#4F4F4F; 
+    background-color:#FBFFFB;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 a
 {
     font-family: 'Source Sans Pro', sans-serif;
     text-decoration: none;
-    font-size: 5rem;
+    color:#266035;
 }
 
 h1, h2, h3
 {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #266035
+    font-family: 'Oxygen', sans-serif;
+    color:#266035;
+    text-align:center;
 }
 
 h1
 {
+    color:#FBFFFB;
+    font-size:5rem;
+}
+
+h2  { font-size:3.5rem; }
+h3  { font-size:2.5rem; }
+
+button
+{
+    background-color:#266035;
+    padding:3% 4%;
+    font-size:1.8rem;
     font-family: 'Source Sans Pro', sans-serif;
+    color:#FBFFFB;
+}
+
+section { padding:4% 0;  }
+
+/*Header Section Styles*/
+nav
+{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position:fixed;
+    top:0;
+    width: 100%;
+    z-index: 999;/*will make sure everything scrolls behind the nav*/
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.logo
+{
+    width:10%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img { width:70%; }
+
+.links
+{
+    width:50%;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+/*Top Section Styles*/
+#top
+{
+    height:90vh;
+    background-image:url('../images/header.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+}
+
+#top button
+{
+    background-color:#FBFFFB;
+    border:2px solid #266035;
+    color:#266035;
+    margin-top:5%;
+    transition:2s;
+}
+
+#top button:hover
+{
+    color:#FBFFFB;
+    background-color:#266035;
+}
+
+/*About Section Styles*/
+#about
+{
+    height:80vh;
+    background-image:url('../images/about-img.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#about .txt
+{
+    width:25%;
+    margin-right:10%;
+}
+
+/*shop section styles*/
+.container
+{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+
+.shoptxt, .bgimg { width:50%; }
+
+.shoptxt
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:6% 4%;
+    text-align:center;
+}
+
+.shoptxt div { width:65%; }
+
+.shoptxt div button { margin-top: 5%; }
+
+.bgimg
+{
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+.succulants { background-image:url('../images/succulants.jpg');}
+.cacti      { background-image:url('../images/cacti.jpg'); }
+.tropicals  { background-image:url('../images/tropicals.jpg');}
+
+/* Footer section styles */
+#contact
+{
+    display: flex;
+    flex-wrap: wrap;
+    color: #ffff;
+    background-color: #266035;
+}
+
+#contact a, #contact h3
+{
     color: #FBFFFB;
+    text-align: left;
+
 }
 
-h2
-{
-    font-size: 3.5rem;
+#contact h2 
+{ 
+    width: 100%; 
+    color: #fff;
 }
 
-h3
+.left, .right
 {
-    font-size: 2.5rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left div, .right img { width: 60%;}
+
+.bottom
+{
+    width: 100%;
+    text-align: right;
+    margin-right: 10%;
+}
+
+/* Tablet Media Query
+If screen size is 800px or smaller */
+@media(max-width: 800px)
+{
+
+}
+
+/* Mobile query */
+@media(max-width: 500px)
+{
+    nav     {flex-direction: column; }
+
+    .links  { width: 80%;}
+
+    #about
+    {
+        background-image: none;
+        background-color: gray;
+        justify-content: center;
+        height: auto;
+    }
+
+    #about .txt
+    {
+        margin: 0;
+        width: 80%;
+
+    }
+
+    /* */
+    .container { justify-content: center; }
+
+    .bgimg  { height: 60vh;}
+
+    .shoptxt, .bgimg { width: 90%; }
+
+    /* Order */
+    .one    {order: 0;}
+    .two    {order: 1;}
+    .three  {order: 2;}
+    .four   {order: 3;}
+    .five   {order: 4;}
+    .six    {order: 5;}
+
+    #contact { flex-direction: column;}
+
+    .bottom { text-align: center; }
+
+    .left, .right { width: 100%;}
+
+    #contact h2 { order: -1}
+
+    .left { order: 1;}
+
+    .right { order: 2;}
+
+    .bottom { order: 3;}
+
+    
 }
